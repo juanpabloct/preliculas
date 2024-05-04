@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
   signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TargetComponent } from './components/target/target.component';
+import { TargetComponent } from '../components/target2/target.component';
 import { GetMovies } from '../../models/peliculas';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { getMovies, searchMovies } from './peliculas.services';
@@ -34,7 +33,6 @@ export class PeliculasComponent {
   async ngOnInit() {
     this.getMoviesService();
   }
-
   async setPagination(newPage: number) {
     this.page.set(newPage);
     this.data.set((await getMovies(newPage)).results);

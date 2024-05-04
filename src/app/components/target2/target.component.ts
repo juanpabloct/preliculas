@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ResultMovies } from '../../../../models/peliculas';
+import { ResultMovies } from '../../../models/peliculas';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
