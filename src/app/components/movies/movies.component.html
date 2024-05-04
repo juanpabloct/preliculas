@@ -1,0 +1,75 @@
+<div class="movies d-flex flex-column justify-content-center ">
+  <div class="row justify-content-center align-items-center">
+    <h1 class="col w200">Busqueda de tu pelicula favorita</h1>
+    <div class="movies__search col-sm-6 rounded-top rounded-bottom rounded-left rounded-right  d-flex flex-row justify-content-between">
+      <button
+        type="submit"
+        (click)="onSearch()"
+        class="search__button search__button-search"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+          />
+        </svg>
+      </button>
+      <input
+        id="typeahead-prevent-manual-entry"
+        type="text"
+        class="search__input border-0 w-100"
+        [(ngModel)]="search"
+        (keypress)="onKeyPress($event)"
+      />
+      <button
+        type="submit"
+        (click)="clearSearch()"
+        class="search__button search__button-clear"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          class="bi bi-x"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <section class="row gap-4 mt-4 justify-content-center">
+    <div class="container row justify-content-center">
+      <div class="row col-sm-12 col-md-10  gap-4 mt-4 align-items-center justify-content-center">
+        <ng-template
+          ngFor
+          let-item
+          [ngForOf]="data()"
+          let-i="index"
+          [ngForTrackBy]="trackByFn"
+        >
+          <app-target
+            [movie]="item"
+            class="col-10 col-sm-6 col-md-4 col-lg-3 row justify-content-center"
+          />
+        </ng-template>
+      </div>
+    </div>
+    <ngb-pagination
+      [collectionSize]="70"
+      [(page)]="page"
+      aria-label="Default pagination"
+      (pageChange)="setPagination($event)"
+    />
+  </section>
+</div>

@@ -1,0 +1,8 @@
+<div class="movies d-flex flex-column justify-content-center mt-3">
+  <h3>Recommendations</h3>
+  <ul>
+    <li *ngFor="let item of recommendations; index as i; trackBy: trackByFn">
+      <p>{{item.title}}</p>
+    </li>
+  </ul>
+</div>
