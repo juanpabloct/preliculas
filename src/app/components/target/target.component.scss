@@ -14,10 +14,12 @@
   width: 100%;
   cursor: pointer;
   overflow: hidden;
+  transition: transform .6s ease-in;
+  border-radius: 8px;
 
   &:hover {
     border-radius: 8px solid black;
-
+    transform: scale(1.1);
   }
 
   &:hover>&__info {
@@ -86,14 +88,4 @@
     }
   }
 
-  // @media screen and (max-width: 650px) {
-  //   &__container-img {
-  //     .container-img {
-  //       &__poster {
-  //         width: 250px;
-  //         height: 400px;
-  //       }
-  //     }
-  //   }
-  // }
 }

@@ -1,16 +1,14 @@
-<div class="target col-sm">
-   <div class="target__info">
-    <h3 class="info__title">{{ movie.title }}</h3>
+<a [routerLink]="['/movies', movie.id]" routerLinkActive="active" ariaCurrentWhenActive="page" class="target col-sm">
+  <div class=" target__info">
+    <h3 class="info__title">
+      {{ movie.title }}
+    </h3>
     <div class="info__description">
       <p>{{ movie.overview }}</p>
     </div>
   </div>
   <div class="target__container-img">
-    <img
-      class="container-img__poster"
-      src="https://image.tmdb.org/t/p/w400/{{ movie.poster_path }}"
-      alt="poster"
-    />
+    <img class="container-img__poster" src="https://image.tmdb.org/t/p/w400/{{ movie.poster_path }}" alt="poster" />
   </div>
- 
-</div>
+</a>
+<router-outlet></router-outlet>

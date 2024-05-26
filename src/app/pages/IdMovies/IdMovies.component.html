@@ -174,10 +174,13 @@
   }
 </style>
 
-<main class="main position-relative d-flex flex-column">
-  <div class="position-relative d-flex p-0 flex-column">
-    <img class="container-img__poster position-absolute top-0 left-0 w-100 h-100 z-index-5 poster"
-      src="https://image.tmdb.org/t/p/w780/{{ movie.poster_path }}" alt="poster" />
+<main class="main position-relative d-flex flex-column w-100">
+  <div
+    class="position-relative d-flex p-0 flex-column w-100 min-vh-100 object-fit-cover object-position-start justify-content-between">
+    <div class="poster w-100 h-100">
+      <img class="container-img__poster position-absolute top-0 left-0 w-100 h-100 z-index-5 poster"
+        src="https://image.tmdb.org/t/p/w780/{{ movie.poster_path }}" alt="poster" />
+    </div>
     <div class="zindex-dropdown bg-gradient-primary p-2 text-white p-md-5 d-flex flex-column gap-3">
       <h1 class="bg-gradient-primary text-white ">{{movie.title}}</h1>
       <p class="bg-gradient-primary text-white col-12 col-md-10">{{movie.overview}}</p>
@@ -211,7 +214,7 @@
       </div>
 
     </div>
-    <div class="d-flex flex-column align-items-center">
+    <div class="d-flex flex-column align-items-center mb-4">
       <h3 class="bg-gradient-primary text-white">Posters</h3>
       <ngb-carousel>
         @for (img of images; track img; let i = $index) {
@@ -222,5 +225,4 @@
       </ngb-carousel>
     </div>
   </div>
-  <!-- <app-recommendations /> -->
 </main>
