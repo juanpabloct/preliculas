@@ -23,13 +23,11 @@ export class RecommendationsComponent {
   recommendations: Recommendations["results"] = []
   async ngOnInit() {
     let id_movie: number = this.rutaActiva.snapshot.params["id"]
-    console.log(id_movie);
 
     this.getService(id_movie);
   }
   async getService(id: number) {
     this.recommendations = (await getRecommendationsMovie(id)).results
-    console.log(this.recommendations);
 
   }
   trackByFn(index: number, item: any) {
